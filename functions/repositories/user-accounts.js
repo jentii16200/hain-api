@@ -28,7 +28,7 @@ exports.getUserAccounts = async (req, res) => {
     const container = [];
     await db.collection('UserDetails').get().then((val) => {
       val.forEach((doc) =>{
-        container.push(doc.data());
+        container.push({...doc.data(), id: doc.id});
         console.log(doc.data());
       });
       res.send(container);
@@ -37,3 +37,4 @@ exports.getUserAccounts = async (req, res) => {
     res.send({error: error.messsage});
   }
 };
+

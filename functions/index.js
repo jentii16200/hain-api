@@ -2,11 +2,14 @@ const functions = require('firebase-functions');
 const express = require('express');
 const app = express('express');
 const cors = require('cors');
+
 const {login, register, deleteAccount, updateAccount, getUserAccounts} = require('./repositories/user-accounts');
-const {addMenu, deleteMenu} = require('./repositories/menu-management');
+const {addMenu, deleteMenu, getMenu} = require('./repositories/menu-management');
 const {createRemarks, getRemarks} = require('./repositories/remarks');
 const {addOrder, rejectOrder, acceptOrder, onGoingOrder, doneOrder, getOrderLogs} = require('./repositories/order');
+
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 app.use(cors());
 app.options('*', cors());
 // USER ACCOUNTS
@@ -20,7 +23,7 @@ app.get('/getUserAccounts', getUserAccounts);
 
 app.post('/addMenu', addMenu);
 app.post('/deleteMenu', deleteMenu);
-
+app.post('/getMenu', getMenu);
 // Order Logs
 
 app.post('/addOrder', addOrder);
