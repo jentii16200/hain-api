@@ -32,7 +32,7 @@ exports.rejectOrder = async (req, res) => {
 exports.acceptOrder = async (req, res) => {
   const id = req.body.id;
   await db.collection('OrderHistory').doc(id).set({
-    status: 'onProcess',
+    status: 'pending',
   }, {merge: true});
 };
 exports.onGoingOrder = async (req, res) => {
