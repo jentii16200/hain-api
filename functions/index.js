@@ -12,20 +12,20 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cors());
 app.options('*', cors());
-// USER ACCOUNTS
 
+// USER ACCOUNTS
 app.post('/login', login);
 app.post('/register', register);
 app.post('/deleteAccount', deleteAccount);
 app.post('/updateAccount', updateAccount);
 app.get('/getUserAccounts', getUserAccounts);
-// MENU Management
 
+// MENU Management
 app.post('/addMenu', addMenu);
 app.post('/deleteMenu', deleteMenu);
 app.post('/getMenu', getMenu);
-// Order Logs
 
+// Order Logs
 app.post('/addOrder', addOrder);
 app.post('/rejectOrder', rejectOrder);
 app.post('/acceptOrder', acceptOrder);
@@ -34,7 +34,6 @@ app.post('/doneOrder', doneOrder);
 app.get('/getOrderLogs', getOrderLogs);
 
 // Remarks
-
 app.post('/createRemarks', createRemarks);
 app.get('/getRemarks', getRemarks);
 
