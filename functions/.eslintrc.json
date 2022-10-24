@@ -1,17 +1,20 @@
 {
-    "env": {
-        "browser": true,
-        "commonjs": true,
-        "es2021": true
-    },
-    "extends": "google",
-    "overrides": [
-    ],
-    "parserOptions": {
-        "ecmaVersion": "latest"
-    },
-    "rules": {
-        "linebreak-style": 0,
-        "max-len": ["error", { "code": 120 }]
-    }
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2021": true
+  },
+  "extends": "google",
+  "overrides": [],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "rules": {
+    "linebreak-style": 0,
+    "max-len": ["error", { "code": 120 }],
+    "no-unused-vars": "off",
+    "quotes": "off",
+    "object-curly-spacing": "off",
+    "indent": "off"
+  }
 }
