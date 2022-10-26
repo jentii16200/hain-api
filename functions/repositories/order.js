@@ -3,7 +3,11 @@ const {calTotalPrice} = require('../util/calculate-order');
 //  Order-Model = {
 //         orderId: "",
 //         status: "",
-//         name: "",
+// userDetails: {
+  //         name: "",
+  //         allergy: [] ,
+  //         userId: ""
+// }
 //         orders: [
 //             {
 //                 dish: "",
@@ -11,15 +15,15 @@ const {calTotalPrice} = require('../util/calculate-order');
 //                 price: 0
 //             }
 //         ],
-//         allergy: [] ,
-//         userId: ""
-//  }
 
 
 exports.addOrder = async (req, res) =>{
   const data = req.body.data;
-  data.total = calTotalPrice(data);
-  await db.collection('Order').add(data);
+  // TODO FOR TOTAL PRICCE
+  // data.total = calTotalPrice(data);
+  await db.collection('Order').add(data).then((val) => {
+    res.send({result: "success", status: 200});
+  });
 };
 
 exports.rejectOrder = async (req, res) => {
