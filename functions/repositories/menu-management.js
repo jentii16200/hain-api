@@ -9,7 +9,7 @@ const { db } = require("../util/firebase-init");
 
 exports.addMenu = async (req, res) => {
   const data = req.body.data;
-  const menuref = await db.collection("Menu").doc(data.dish).get();
+  const menuref = await db.collection("Menu").doc(data.name).get();
   const menuDoc = menuref.data();
   if (menuDoc != null) {
     res.send({
@@ -20,7 +20,7 @@ exports.addMenu = async (req, res) => {
   }
   await db
     .collection("Menu")
-    .doc(data.dish)
+    .doc(data.name)
     .set(data)
     .then((val) => {
       res.send({
