@@ -11,7 +11,12 @@ exports.login = async (req, res) => {
 exports.register = async (req, res) => {
   const data = req.body.data;
   data.foodAllergy = [];
-  await db.collection("UserDetails").add(data, { merge: true });
+  await db
+    .collection("UserDetails")
+    .add(data, { merge: true })
+    .then((val) => {
+      res.send({ status: 200, message: "success", result: "success" });
+    });
 };
 
 exports.deleteAccount = async (req, res) => {

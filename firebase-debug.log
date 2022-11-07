@@ -1,0 +1,227 @@
+[debug] [2022-11-06T12:17:24.553Z] ----------------------------------------------------------------------
+[debug] [2022-11-06T12:17:24.555Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\paulg\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions:api
+[debug] [2022-11-06T12:17:24.555Z] CLI Version:   11.10.0
+[debug] [2022-11-06T12:17:24.555Z] Platform:      win32
+[debug] [2022-11-06T12:17:24.555Z] Node Version:  v16.14.2
+[debug] [2022-11-06T12:17:24.556Z] Time:          Sun Nov 06 2022 20:17:24 GMT+0800 (Taipei Standard Time)
+[debug] [2022-11-06T12:17:24.556Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-11-06T12:17:24.619Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-11-06T12:17:24.619Z] > authorizing via signed-in user (jentereso.kezar@gmail.com)
+[debug] [2022-11-06T12:17:24.619Z] [iam] checking project hain-402aa for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2022-11-06T12:17:24.621Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/hain-402aa:testIamPermissions [none]
+[debug] [2022-11-06T12:17:24.622Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/hain-402aa:testIamPermissions x-goog-quota-user=projects/hain-402aa
+[debug] [2022-11-06T12:17:24.622Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/hain-402aa:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2022-11-06T12:17:25.810Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/hain-402aa:testIamPermissions 200
+[debug] [2022-11-06T12:17:25.810Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/hain-402aa:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2022-11-06T12:17:25.811Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/hain-402aa/serviceAccounts/hain-402aa@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2022-11-06T12:17:25.811Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/hain-402aa/serviceAccounts/hain-402aa@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2022-11-06T12:17:27.191Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/hain-402aa/serviceAccounts/hain-402aa@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2022-11-06T12:17:27.191Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/hain-402aa/serviceAccounts/hain-402aa@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'hain-402aa'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run lint
+[info] +  functions: Finished running predeploy script. 
+[debug] [2022-11-06T12:17:28.887Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/hain-402aa [none]
+[debug] [2022-11-06T12:17:29.436Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/hain-402aa 200
+[debug] [2022-11-06T12:17:29.436Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/hain-402aa {"projectId":"hain-402aa","projectNumber":"689954200164","displayName":"hain","name":"projects/hain-402aa","resources":{"hostingSite":"hain-402aa","storageBucket":"hain-402aa.appspot.com","locationId":"asia-east2"},"state":"ACTIVE","etag":"1_71036942-61e8-473b-8b68-a482fe6abbb7"}
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2022-11-06T12:17:29.439Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/hain-402aa/services/cloudfunctions.googleapis.com [none]
+[debug] [2022-11-06T12:17:29.439Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/hain-402aa/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/hain-402aa
+[debug] [2022-11-06T12:17:29.440Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/hain-402aa/services/runtimeconfig.googleapis.com [none]
+[debug] [2022-11-06T12:17:29.440Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/hain-402aa/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/hain-402aa
+[debug] [2022-11-06T12:17:29.441Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/hain-402aa/services/cloudbuild.googleapis.com [none]
+[debug] [2022-11-06T12:17:29.441Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/hain-402aa/services/cloudbuild.googleapis.com x-goog-quota-user=projects/hain-402aa
+[debug] [2022-11-06T12:17:29.442Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/hain-402aa/services/artifactregistry.googleapis.com [none]
+[debug] [2022-11-06T12:17:29.442Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/hain-402aa/services/artifactregistry.googleapis.com x-goog-quota-user=projects/hain-402aa
+[debug] [2022-11-06T12:17:31.063Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/hain-402aa/services/runtimeconfig.googleapis.com 200
+[debug] [2022-11-06T12:17:31.064Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/hain-402aa/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2022-11-06T12:17:31.066Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/hain-402aa/services/cloudfunctions.googleapis.com 200
+[debug] [2022-11-06T12:17:31.066Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/hain-402aa/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2022-11-06T12:17:31.114Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/hain-402aa/services/artifactregistry.googleapis.com 200
+[debug] [2022-11-06T12:17:31.114Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/hain-402aa/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2022-11-06T12:17:31.149Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/hain-402aa/services/cloudbuild.googleapis.com 200
+[debug] [2022-11-06T12:17:31.149Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/hain-402aa/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2022-11-06T12:17:31.150Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/hain-402aa/adminSdkConfig [none]
+[debug] [2022-11-06T12:17:31.573Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/hain-402aa/adminSdkConfig 200
+[debug] [2022-11-06T12:17:31.573Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/hain-402aa/adminSdkConfig {"projectId":"hain-402aa","storageBucket":"hain-402aa.appspot.com","locationId":"asia-east2"}
+[debug] [2022-11-06T12:17:31.573Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/hain-402aa/configs [none]
+[debug] [2022-11-06T12:17:32.770Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/hain-402aa/configs 200
+[debug] [2022-11-06T12:17:32.770Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/hain-402aa/configs {}
+[info] i  functions: preparing codebase default for deployment 
+[debug] [2022-11-06T12:17:32.772Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2022-11-06T12:17:35.954Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@babel/eslint-parser": "^7.19.1",
+    "babel-eslint": "^10.1.0",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "firebase": "^9.10.0",
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0",
+    "nodemon": "^2.0.20"
+  },
+  "devDependencies": {
+    "eslint": "^8.24.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-11-06T12:17:35.954Z] Building nodejs source
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2022-11-06T12:17:35.958Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-11-06T12:17:36.236Z] Serving at port 9005
+
+[debug] [2022-11-06T12:17:36.376Z] running on port 1
+
+[debug] [2022-11-06T12:17:36.382Z] Got response from /__/functions.yaml {"endpoints":{"api":{"platform":"gcfv1","availableMemoryMb":1024,"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-11-06T12:17:36.388Z] shutdown requested via /__/quitquitquit
+
+[info] i  functions: preparing functions directory for uploading... 
+[info] i  functions: packaged C:\Users\paulg\Desktop\Kezar\hainapi\functions (114.64 KB) for uploading 
+[debug] [2022-11-06T12:17:46.462Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/hain-402aa/locations/-/functions [none]
+[debug] [2022-11-06T12:17:47.670Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/hain-402aa/locations/-/functions 200
+[debug] [2022-11-06T12:17:47.670Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/hain-402aa/locations/-/functions {"functions":[{"name":"projects/hain-402aa/locations/us-central1/functions/api","httpsTrigger":{"url":"https://us-central1-hain-402aa.cloudfunctions.net/api","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"api","timeout":"60s","availableMemoryMb":1024,"serviceAccountEmail":"hain-402aa@appspot.gserviceaccount.com","updateTime":"2022-11-06T11:55:17.024Z","versionId":"18","labels":{"deployment-tool":"cli-firebase"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-574745893299.us-central1.cloudfunctions.appspot.com/ed88fd8b-efcb-46b3-8ccd-84b9247705fb.zip","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"hain-402aa\",\"storageBucket\":\"hain-402aa.appspot.com\",\"locationId\":\"asia-east2\"}","GCLOUD_PROJECT":"hain-402aa"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"326875c8-28e3-4dce-a863-22b43bcabddf","buildName":"projects/689954200164/locations/us-central1/builds/326875c8-28e3-4dce-a863-22b43bcabddf","dockerRegistry":"ARTIFACT_REGISTRY"}]}
+[debug] [2022-11-06T12:17:47.671Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/hain-402aa/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2022-11-06T12:17:49.226Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/hain-402aa/locations/-/functions 200
+[debug] [2022-11-06T12:17:49.226Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/hain-402aa/locations/-/functions {}
+[debug] [2022-11-06T12:17:49.231Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/hain-402aa [none]
+[debug] [2022-11-06T12:17:49.633Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/hain-402aa 200
+[debug] [2022-11-06T12:17:49.633Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/hain-402aa {"projectId":"hain-402aa","projectNumber":"689954200164","displayName":"hain","name":"projects/hain-402aa","resources":{"hostingSite":"hain-402aa","storageBucket":"hain-402aa.appspot.com","locationId":"asia-east2"},"state":"ACTIVE","etag":"1_71036942-61e8-473b-8b68-a482fe6abbb7"}
+[debug] [2022-11-06T12:17:49.634Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/hain-402aa/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2022-11-06T12:17:49.634Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/hain-402aa/locations/us-central1/functions:generateUploadUrl {}
+[debug] [2022-11-06T12:17:50.639Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/hain-402aa/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2022-11-06T12:17:50.639Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/hain-402aa/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/uploads-574745893299.us-central1.cloudfunctions.appspot.com/ab32d6f4-be5d-496e-8309-3910e507044f.zip?GoogleAccessId=service-689954200164@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667738878&Signature=O1khlEEVgR9ekymHqEike8NUGJsB3zzLze3tBiUGquoYxPKNiP7QQgCOlHAOx%2BMGZX2dtwuSdfjO0Vcjo2RJMYam7Wbl94tuU58VuW86otfMPEkWASYz94724uWXUY0ddqYJdHynUnPyVsZw6XwFER0LQmndrSxpANjexSp09SVm3mBCrbqJDhrJbyMlCVcOh1%2BlcbzVGl9ZFGxu76yzoFcu4XH0qeeF59w3LAAB38F75741Dhw5uxgFb60MHsJt%2BHofAncI5Wdi1ZmvuyJt4a7c0xsKAtUjII4bSD69CJQkM%2FRPCoF7ZwX2VDmUqA4h1szPGqY%2B5Ys7zWMuIU05dA%3D%3D"}
+[debug] [2022-11-06T12:17:50.640Z] >>> [apiv2][query] PUT https://storage.googleapis.com/uploads-574745893299.us-central1.cloudfunctions.appspot.com/ab32d6f4-be5d-496e-8309-3910e507044f.zip GoogleAccessId=service-689954200164%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1667738878&Signature=O1khlEEVgR9ekymHqEike8NUGJsB3zzLze3tBiUGquoYxPKNiP7QQgCOlHAOx%2BMGZX2dtwuSdfjO0Vcjo2RJMYam7Wbl94tuU58VuW86otfMPEkWASYz94724uWXUY0ddqYJdHynUnPyVsZw6XwFER0LQmndrSxpANjexSp09SVm3mBCrbqJDhrJbyMlCVcOh1%2BlcbzVGl9ZFGxu76yzoFcu4XH0qeeF59w3LAAB38F75741Dhw5uxgFb60MHsJt%2BHofAncI5Wdi1ZmvuyJt4a7c0xsKAtUjII4bSD69CJQkM%2FRPCoF7ZwX2VDmUqA4h1szPGqY%2B5Ys7zWMuIU05dA%3D%3D
+[debug] [2022-11-06T12:17:50.640Z] >>> [apiv2][body] PUT https://storage.googleapis.com/uploads-574745893299.us-central1.cloudfunctions.appspot.com/ab32d6f4-be5d-496e-8309-3910e507044f.zip [stream]
+[debug] [2022-11-06T12:17:51.542Z] <<< [apiv2][status] PUT https://storage.googleapis.com/uploads-574745893299.us-central1.cloudfunctions.appspot.com/ab32d6f4-be5d-496e-8309-3910e507044f.zip 200
+[debug] [2022-11-06T12:17:51.542Z] <<< [apiv2][body] PUT https://storage.googleapis.com/uploads-574745893299.us-central1.cloudfunctions.appspot.com/ab32d6f4-be5d-496e-8309-3910e507044f.zip [omitted]
+[info] +  functions: functions folder uploaded successfully 
+[info] i  functions: updating Node.js 16 function api(us-central1)... 
+[debug] [2022-11-06T12:17:51.547Z] >>> [apiv2][query] PATCH https://cloudfunctions.googleapis.com/v1/projects/hain-402aa/locations/us-central1/functions/api updateMask=name%2CsourceUploadUrl%2CentryPoint%2Cruntime%2CdockerRegistry%2Clabels%2ChttpsTrigger.securityLevel%2CenvironmentVariables%2CavailableMemoryMb%2CsourceToken
+[debug] [2022-11-06T12:17:51.547Z] >>> [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v1/projects/hain-402aa/locations/us-central1/functions/api {"name":"projects/hain-402aa/locations/us-central1/functions/api","sourceUploadUrl":"https://storage.googleapis.com/uploads-574745893299.us-central1.cloudfunctions.appspot.com/ab32d6f4-be5d-496e-8309-3910e507044f.zip?GoogleAccessId=service-689954200164@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667738878&Signature=O1khlEEVgR9ekymHqEike8NUGJsB3zzLze3tBiUGquoYxPKNiP7QQgCOlHAOx%2BMGZX2dtwuSdfjO0Vcjo2RJMYam7Wbl94tuU58VuW86otfMPEkWASYz94724uWXUY0ddqYJdHynUnPyVsZw6XwFER0LQmndrSxpANjexSp09SVm3mBCrbqJDhrJbyMlCVcOh1%2BlcbzVGl9ZFGxu76yzoFcu4XH0qeeF59w3LAAB38F75741Dhw5uxgFb60MHsJt%2BHofAncI5Wdi1ZmvuyJt4a7c0xsKAtUjII4bSD69CJQkM%2FRPCoF7ZwX2VDmUqA4h1szPGqY%2B5Ys7zWMuIU05dA%3D%3D","entryPoint":"api","runtime":"nodejs16","dockerRegistry":"ARTIFACT_REGISTRY","labels":{"deployment-tool":"cli-firebase"},"httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"hain-402aa\",\"storageBucket\":\"hain-402aa.appspot.com\",\"locationId\":\"asia-east2\"}","GCLOUD_PROJECT":"hain-402aa"},"availableMemoryMb":1024}
+[debug] [2022-11-06T12:17:52.613Z] <<< [apiv2][status] PATCH https://cloudfunctions.googleapis.com/v1/projects/hain-402aa/locations/us-central1/functions/api 200
+[debug] [2022-11-06T12:17:52.613Z] <<< [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v1/projects/hain-402aa/locations/us-central1/functions/api {"name":"operations/aGFpbi00MDJhYS91cy1jZW50cmFsMS9hcGkvbXo0RXpTc1lLanM","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/hain-402aa/locations/us-central1/functions/api","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/hain-402aa/locations/us-central1/functions/api","httpsTrigger":{"url":"https://us-central1-hain-402aa.cloudfunctions.net/api","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"api","timeout":"60s","availableMemoryMb":1024,"serviceAccountEmail":"hain-402aa@appspot.gserviceaccount.com","updateTime":"2022-11-06T11:55:17.024Z","versionId":"18","labels":{"deployment-tool":"cli-firebase"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-574745893299.us-central1.cloudfunctions.appspot.com/ab32d6f4-be5d-496e-8309-3910e507044f.zip?GoogleAccessId=service-689954200164@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667738878&Signature=O1khlEEVgR9ekymHqEike8NUGJsB3zzLze3tBiUGquoYxPKNiP7QQgCOlHAOx%2BMGZX2dtwuSdfjO0Vcjo2RJMYam7Wbl94tuU58VuW86otfMPEkWASYz94724uWXUY0ddqYJdHynUnPyVsZw6XwFER0LQmndrSxpANjexSp09SVm3mBCrbqJDhrJbyMlCVcOh1%2BlcbzVGl9ZFGxu76yzoFcu4XH0qeeF59w3LAAB38F75741Dhw5uxgFb60MHsJt%2BHofAncI5Wdi1ZmvuyJt4a7c0xsKAtUjII4bSD69CJQkM%2FRPCoF7ZwX2VDmUqA4h1szPGqY%2B5Ys7zWMuIU05dA%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"hain-402aa\",\"storageBucket\":\"hain-402aa.appspot.com\",\"locationId\":\"asia-east2\"}","GCLOUD_PROJECT":"hain-402aa"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"326875c8-28e3-4dce-a863-22b43bcabddf","buildName":"projects/689954200164/locations/us-central1/builds/326875c8-28e3-4dce-a863-22b43bcabddf","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"19","updateTime":"2022-11-06T12:18:00Z"}}
+[debug] [2022-11-06T12:17:52.614Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/aGFpbi00MDJhYS91cy1jZW50cmFsMS9hcGkvbXo0RXpTc1lLanM [none]
+[debug] [2022-11-06T12:17:53.224Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/aGFpbi00MDJhYS91cy1jZW50cmFsMS9hcGkvbXo0RXpTc1lLanM 200
+[debug] [2022-11-06T12:17:53.225Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/aGFpbi00MDJhYS91cy1jZW50cmFsMS9hcGkvbXo0RXpTc1lLanM {"name":"operations/aGFpbi00MDJhYS91cy1jZW50cmFsMS9hcGkvbXo0RXpTc1lLanM","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/hain-402aa/locations/us-central1/functions/api","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/hain-402aa/locations/us-central1/functions/api","httpsTrigger":{"url":"https://us-central1-hain-402aa.cloudfunctions.net/api","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"api","timeout":"60s","availableMemoryMb":1024,"serviceAccountEmail":"hain-402aa@appspot.gserviceaccount.com","updateTime":"2022-11-06T11:55:17.024Z","versionId":"18","labels":{"deployment-tool":"cli-firebase"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-574745893299.us-central1.cloudfunctions.appspot.com/ab32d6f4-be5d-496e-8309-3910e507044f.zip?GoogleAccessId=service-689954200164@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667738878&Signature=O1khlEEVgR9ekymHqEike8NUGJsB3zzLze3tBiUGquoYxPKNiP7QQgCOlHAOx%2BMGZX2dtwuSdfjO0Vcjo2RJMYam7Wbl94tuU58VuW86otfMPEkWASYz94724uWXUY0ddqYJdHynUnPyVsZw6XwFER0LQmndrSxpANjexSp09SVm3mBCrbqJDhrJbyMlCVcOh1%2BlcbzVGl9ZFGxu76yzoFcu4XH0qeeF59w3LAAB38F75741Dhw5uxgFb60MHsJt%2BHofAncI5Wdi1ZmvuyJt4a7c0xsKAtUjII4bSD69CJQkM%2FRPCoF7ZwX2VDmUqA4h1szPGqY%2B5Ys7zWMuIU05dA%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"hain-402aa\",\"storageBucket\":\"hain-402aa.appspot.com\",\"locationId\":\"asia-east2\"}","GCLOUD_PROJECT":"hain-402aa"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"326875c8-28e3-4dce-a863-22b43bcabddf","buildName":"projects/689954200164/locations/us-central1/builds/326875c8-28e3-4dce-a863-22b43bcabddf","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"19","updateTime":"2022-11-06T12:18:01Z"}}
+[debug] [2022-11-06T12:17:53.731Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2022-11-06T12:17:53.731Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/aGFpbi00MDJhYS91cy1jZW50cmFsMS9hcGkvbXo0RXpTc1lLanM [none]
+[debug] [2022-11-06T12:17:54.135Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/aGFpbi00MDJhYS91cy1jZW50cmFsMS9hcGkvbXo0RXpTc1lLanM 200
+[debug] [2022-11-06T12:17:54.135Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/aGFpbi00MDJhYS91cy1jZW50cmFsMS9hcGkvbXo0RXpTc1lLanM {"name":"operations/aGFpbi00MDJhYS91cy1jZW50cmFsMS9hcGkvbXo0RXpTc1lLanM","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/hain-402aa/locations/us-central1/functions/api","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/hain-402aa/locations/us-central1/functions/api","httpsTrigger":{"url":"https://us-central1-hain-402aa.cloudfunctions.net/api","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"api","timeout":"60s","availableMemoryMb":1024,"serviceAccountEmail":"hain-402aa@appspot.gserviceaccount.com","updateTime":"2022-11-06T11:55:17.024Z","versionId":"18","labels":{"deployment-tool":"cli-firebase"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-574745893299.us-central1.cloudfunctions.appspot.com/ab32d6f4-be5d-496e-8309-3910e507044f.zip?GoogleAccessId=service-689954200164@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667738878&Signature=O1khlEEVgR9ekymHqEike8NUGJsB3zzLze3tBiUGquoYxPKNiP7QQgCOlHAOx%2BMGZX2dtwuSdfjO0Vcjo2RJMYam7Wbl94tuU58VuW86otfMPEkWASYz94724uWXUY0ddqYJdHynUnPyVsZw6XwFER0LQmndrSxpANjexSp09SVm3mBCrbqJDhrJbyMlCVcOh1%2BlcbzVGl9ZFGxu76yzoFcu4XH0qeeF59w3LAAB38F75741Dhw5uxgFb60MHsJt%2BHofAncI5Wdi1ZmvuyJt4a7c0xsKAtUjII4bSD69CJQkM%2FRPCoF7ZwX2VDmUqA4h1szPGqY%2B5Ys7zWMuIU05dA%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"hain-402aa\",\"storageBucket\":\"hain-402aa.appspot.com\",\"locationId\":\"asia-east2\"}","GCLOUD_PROJECT":"hain-402aa"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"326875c8-28e3-4dce-a863-22b43bcabddf","buildName":"projects/689954200164/locations/us-central1/builds/326875c8-28e3-4dce-a863-22b43bcabddf","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"19","updateTime":"2022-11-06T12:18:01Z","buildId":"c4b24e9e-3f9f-4478-9970-cf730b856069","buildName":"projects/689954200164/locations/us-central1/builds/c4b24e9e-3f9f-4478-9970-cf730b856069"}}
+[debug] [2022-11-06T12:17:55.140Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2022-11-06T12:17:55.140Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/aGFpbi00MDJhYS91cy1jZW50cmFsMS9hcGkvbXo0RXpTc1lLanM [none]
+[debug] [2022-11-06T12:17:55.688Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/aGFpbi00MDJhYS91cy1jZW50cmFsMS9hcGkvbXo0RXpTc1lLanM 200
+[debug] [2022-11-06T12:17:55.688Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/aGFpbi00MDJhYS91cy1jZW50cmFsMS9hcGkvbXo0RXpTc1lLanM {"name":"operations/aGFpbi00MDJhYS91cy1jZW50cmFsMS9hcGkvbXo0RXpTc1lLanM","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/hain-402aa/locations/us-central1/functions/api","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/hain-402aa/locations/us-central1/functions/api","httpsTrigger":{"url":"https://us-central1-hain-402aa.cloudfunctions.net/api","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"api","timeout":"60s","availableMemoryMb":1024,"serviceAccountEmail":"hain-402aa@appspot.gserviceaccount.com","updateTime":"2022-11-06T11:55:17.024Z","versionId":"18","labels":{"deployment-tool":"cli-firebase"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-574745893299.us-central1.cloudfunctions.appspot.com/ab32d6f4-be5d-496e-8309-3910e507044f.zip?GoogleAccessId=service-689954200164@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667738878&Signature=O1khlEEVgR9ekymHqEike8NUGJsB3zzLze3tBiUGquoYxPKNiP7QQgCOlHAOx%2BMGZX2dtwuSdfjO0Vcjo2RJMYam7Wbl94tuU58VuW86otfMPEkWASYz94724uWXUY0ddqYJdHynUnPyVsZw6XwFER0LQmndrSxpANjexSp09SVm3mBCrbqJDhrJbyMlCVcOh1%2BlcbzVGl9ZFGxu76yzoFcu4XH0qeeF59w3LAAB38F75741Dhw5uxgFb60MHsJt%2BHofAncI5Wdi1ZmvuyJt4a7c0xsKAtUjII4bSD69CJQkM%2FRPCoF7ZwX2VDmUqA4h1szPGqY%2B5Ys7zWMuIU05dA%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"hain-402aa\",\"storageBucket\":\"hain-402aa.appspot.com\",\"locationId\":\"asia-east2\"}","GCLOUD_PROJECT":"hain-402aa"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"326875c8-28e3-4dce-a863-22b43bcabddf","buildName":"projects/689954200164/locations/us-central1/builds/326875c8-28e3-4dce-a863-22b43bcabddf","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"19","updateTime":"2022-11-06T12:18:01Z","buildId":"c4b24e9e-3f9f-4478-9970-cf730b856069","buildName":"projects/689954200164/locations/us-central1/builds/c4b24e9e-3f9f-4478-9970-cf730b856069"}}
+[debug] [2022-11-06T12:17:57.701Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2022-11-06T12:17:57.702Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/aGFpbi00MDJhYS91cy1jZW50cmFsMS9hcGkvbXo0RXpTc1lLanM [none]
+[debug] [2022-11-06T12:17:58.217Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/aGFpbi00MDJhYS91cy1jZW50cmFsMS9hcGkvbXo0RXpTc1lLanM 200
+[debug] [2022-11-06T12:17:58.217Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/aGFpbi00MDJhYS91cy1jZW50cmFsMS9hcGkvbXo0RXpTc1lLanM {"name":"operations/aGFpbi00MDJhYS91cy1jZW50cmFsMS9hcGkvbXo0RXpTc1lLanM","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/hain-402aa/locations/us-central1/functions/api","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/hain-402aa/locations/us-central1/functions/api","httpsTrigger":{"url":"https://us-central1-hain-402aa.cloudfunctions.net/api","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"api","timeout":"60s","availableMemoryMb":1024,"serviceAccountEmail":"hain-402aa@appspot.gserviceaccount.com","updateTime":"2022-11-06T11:55:17.024Z","versionId":"18","labels":{"deployment-tool":"cli-firebase"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-574745893299.us-central1.cloudfunctions.appspot.com/ab32d6f4-be5d-496e-8309-3910e507044f.zip?GoogleAccessId=service-689954200164@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667738878&Signature=O1khlEEVgR9ekymHqEike8NUGJsB3zzLze3tBiUGquoYxPKNiP7QQgCOlHAOx%2BMGZX2dtwuSdfjO0Vcjo2RJMYam7Wbl94tuU58VuW86otfMPEkWASYz94724uWXUY0ddqYJdHynUnPyVsZw6XwFER0LQmndrSxpANjexSp09SVm3mBCrbqJDhrJbyMlCVcOh1%2BlcbzVGl9ZFGxu76yzoFcu4XH0qeeF59w3LAAB38F75741Dhw5uxgFb60MHsJt%2BHofAncI5Wdi1ZmvuyJt4a7c0xsKAtUjII4bSD69CJQkM%2FRPCoF7ZwX2VDmUqA4h1szPGqY%2B5Ys7zWMuIU05dA%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"hain-402aa\",\"storageBucket\":\"hain-402aa.appspot.com\",\"locationId\":\"asia-east2\"}","GCLOUD_PROJECT":"hain-402aa"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"326875c8-28e3-4dce-a863-22b43bcabddf","buildName":"projects/689954200164/locations/us-central1/builds/326875c8-28e3-4dce-a863-22b43bcabddf","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"19","updateTime":"2022-11-06T12:18:01Z","buildId":"c4b24e9e-3f9f-4478-9970-cf730b856069","buildName":"projects/689954200164/locations/us-central1/builds/c4b24e9e-3f9f-4478-9970-cf730b856069"}}
+[debug] [2022-11-06T12:18:02.228Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2022-11-06T12:18:02.228Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/operations/aGFpbi00MDJhYS91cy1jZW50cmFsMS9hcGkvbXo0RXpTc1lLanM [none]
+[debug] [2022-11-06T12:18:02.838Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/operations/aGFpbi00MDJhYS91cy1jZW50cmFsMS9hcGkvbXo0RXpTc1lLanM 200
+[debug] [2022-11-06T12:18:02.838Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/operations/aGFpbi00MDJhYS91cy1jZW50cmFsMS9hcGkvbXo0RXpTc1lLanM {"name":"operations/aGFpbi00MDJhYS91cy1jZW50cmFsMS9hcGkvbXo0RXpTc1lLanM","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v1.OperationMetadataV1","target":"projects/hain-402aa/locations/us-central1/functions/api","type":"UPDATE_FUNCTION","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.CloudFunction","name":"projects/hain-402aa/locations/us-central1/functions/api","httpsTrigger":{"url":"https://us-central1-hain-402aa.cloudfunctions.net/api","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"api","timeout":"60s","availableMemoryMb":1024,"serviceAccountEmail":"hain-402aa@appspot.gserviceaccount.com","updateTime":"2022-11-06T11:55:17.024Z","versionId":"18","labels":{"deployment-tool":"cli-firebase"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-574745893299.us-central1.cloudfunctions.appspot.com/ab32d6f4-be5d-496e-8309-3910e507044f.zip?GoogleAccessId=service-689954200164@gcf-admin-robot.iam.gserviceaccount.com&Expires=1667738878&Signature=O1khlEEVgR9ekymHqEike8NUGJsB3zzLze3tBiUGquoYxPKNiP7QQgCOlHAOx%2BMGZX2dtwuSdfjO0Vcjo2RJMYam7Wbl94tuU58VuW86otfMPEkWASYz94724uWXUY0ddqYJdHynUnPyVsZw6XwFER0LQmndrSxpANjexSp09SVm3mBCrbqJDhrJbyMlCVcOh1%2BlcbzVGl9ZFGxu76yzoFcu4XH0qeeF59w3LAAB38F75741Dhw5uxgFb60MHsJt%2BHofAncI5Wdi1ZmvuyJt4a7c0xsKAtUjII4bSD69CJQkM%2FRPCoF7ZwX2VDmUqA4h1szPGqY%2B5Ys7zWMuIU05dA%3D%3D","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"hain-402aa\",\"storageBucket\":\"hain-402aa.appspot.com\",\"locationId\":\"asia-east2\"}","GCLOUD_PROJECT":"hain-402aa"},"runtime":"nodejs16","ingressSettings":"ALLOW_ALL","buildId":"326875c8-28e3-4dce-a863-22b43bcabddf","buildName":"projects/689954200164/locations/us-central1/builds/326875c8-28e3-4dce-a863-22b43bcabddf","dockerRegistry":"ARTIFACT_REGISTRY"},"versionId":"19","updateTime":"2022-11-06T12:18:01Z","buildId":"c4b24e9e-3f9f-4478-9970-cf730b856069","buildName":"projects/689954200164/locations/us-central1/builds/c4b24e9e-3f9f-4478-9970-cf730b856069"}}
+[debug] [2022-11-06T14:50:07.475Z] [update-default-us-central1-api] Retrying task index 0
+[debug] [2022-11-06T14:50:07.476Z] > refreshing access token with scopes: []
+[debug] [2022-11-06T14:50:07.477Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-11-06T14:50:07.477Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] Task index 0 failed: timed out after 1500000ms.
+[error] Task index 0 failed: timed out after 1500000ms.
+[debug] [2022-11-06T14:50:07.488Z] Total Function Deployment time: 9135954
+[debug] [2022-11-06T14:50:07.488Z] 1 Functions Deployed
+[debug] [2022-11-06T14:50:07.488Z] 1 Functions Errored
+[debug] [2022-11-06T14:50:07.488Z] 0 Function Deployments Aborted
+[debug] [2022-11-06T14:50:07.488Z] Average Function Deployment time: 9135953
+[info] 
+[info] Functions deploy had errors with the following functions:
+	api(us-central1)
+[debug] [2022-11-06T14:50:07.493Z] Not printing URL for HTTPS function. Typically this means it didn't match a filter or we failed deployment
+[info] i  functions: cleaning up build files... 
+[debug] [2022-11-06T14:50:07.494Z] > refreshing access token with scopes: []
+[debug] [2022-11-06T14:50:07.494Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-11-06T14:50:07.494Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-11-06T14:50:07.496Z] > refreshing access token with scopes: []
+[debug] [2022-11-06T14:50:07.496Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-11-06T14:50:07.497Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-11-06T14:50:07.498Z] Failed docker command with error Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci {"name":"FirebaseError","children":[],"exit":1,"message":"Authentication Error: Your credentials are no longer valid. Please run \u001b[1mfirebase login --reauth\u001b[22m\n\nFor CI servers and headless environments, generate a new token with \u001b[1mfirebase login:ci\u001b[22m","status":500}
+[debug] [2022-11-06T14:50:07.512Z] > refreshing access token with scopes: []
+[debug] [2022-11-06T14:50:07.512Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-11-06T14:50:07.512Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-11-06T14:50:07.514Z] Failed docker command with error Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci {"name":"FirebaseError","children":[],"exit":1,"message":"Authentication Error: Your credentials are no longer valid. Please run \u001b[1mfirebase login --reauth\u001b[22m\n\nFor CI servers and headless environments, generate a new token with \u001b[1mfirebase login:ci\u001b[22m","status":500}
+[debug] [2022-11-06T14:50:07.616Z] > refreshing access token with scopes: []
+[debug] [2022-11-06T14:50:07.617Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-11-06T14:50:07.617Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-11-06T14:50:07.619Z] Failed docker command with error Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci {"name":"FirebaseError","children":[],"exit":1,"message":"Authentication Error: Your credentials are no longer valid. Please run \u001b[1mfirebase login --reauth\u001b[22m\n\nFor CI servers and headless environments, generate a new token with \u001b[1mfirebase login:ci\u001b[22m","status":500}
+[warn] !  functions: Unhandled error cleaning up build images. This could result in a small monthly bill if not corrected. You can attempt to delete these images by redeploying or you can delete them manually at
+	https://console.cloud.google.com/artifacts/docker/hain-402aa/us-central1/gcf-artifacts
+	https://console.cloud.google.com/gcr/images/hain-402aa/us/gcf 
+[debug] [2022-11-06T14:50:07.621Z] Functions deploy failed.
+[debug] [2022-11-06T14:50:07.621Z] {
+  "endpoint": {
+    "id": "api",
+    "project": "hain-402aa",
+    "region": "us-central1",
+    "entryPoint": "api",
+    "platform": "gcfv1",
+    "runtime": "nodejs16",
+    "httpsTrigger": {},
+    "availableMemoryMb": 1024,
+    "environmentVariables": {
+      "FIREBASE_CONFIG": "{\"projectId\":\"hain-402aa\",\"storageBucket\":\"hain-402aa.appspot.com\",\"locationId\":\"asia-east2\"}",
+      "GCLOUD_PROJECT": "hain-402aa"
+    },
+    "codebase": "default",
+    "securityLevel": "SECURE_ALWAYS",
+    "targetedByOnly": true,
+    "labels": {
+      "deployment-tool": "cli-firebase"
+    }
+  },
+  "op": "update",
+  "original": {
+    "name": "FirebaseError",
+    "children": [],
+    "exit": 1,
+    "message": "Task index 0 failed: timed out after 1500000ms.",
+    "status": 500,
+    "level": "debug"
+  }
+}
+[debug] [2022-11-06T14:50:07.624Z] Error: Failed to update function api in region us-central1
+    at C:\Users\paulg\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:42:11
+    at async Fabricator.updateV1Function (C:\Users\paulg\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:306:32)
+    at async Fabricator.updateEndpoint (C:\Users\paulg\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:141:13)
+    at async handle (C:\Users\paulg\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\functions\release\fabricator.js:79:17)
+[error] 
+[error] Error: There was an error deploying functions
