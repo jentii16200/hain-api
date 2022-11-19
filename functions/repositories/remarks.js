@@ -1,4 +1,7 @@
-const {db} = require('../util/firebase-init');
+const { db } = require('../util/firebase-init');
+
+// TODO
+// deleteRemarks
 
 exports.createRemarks = async (req, res) => {
   const message = req.body.message;
