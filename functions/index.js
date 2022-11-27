@@ -9,11 +9,14 @@ const {
   deleteAccount,
   updateAccount,
   getUserAccounts,
+  addUserAllergy,
+  getUserDetailsData,
 } = require("./repositories/user-accounts");
 const {
   addMenu,
   deleteMenu,
   getMenu,
+  updateMenu,
 } = require("./repositories/menu-management");
 const { createRemarks, getRemarks } = require("./repositories/remarks");
 const {
@@ -36,12 +39,13 @@ app.post("/register", register);
 app.post("/deleteAccount", deleteAccount);
 app.post("/updateAccount", updateAccount);
 app.get("/getUserAccounts", getUserAccounts);
-
+app.post("/addUserAllergy", addUserAllergy);
+app.post("/getUserDetailsData", getUserDetailsData);
 // MENU Management
 app.post("/addMenu", addMenu);
 app.post("/deleteMenu", deleteMenu);
 app.post("/getMenu", getMenu);
-
+app.post("/updateMenu", updateMenu);
 // Order Logs
 app.post("/addOrder", addOrder);
 app.post("/rejectOrder", rejectOrder);
