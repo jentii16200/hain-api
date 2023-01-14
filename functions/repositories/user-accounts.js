@@ -28,7 +28,13 @@ exports.register = async (req, res) => {
     await db
       .collection("UserDetails")
       .add(data, { merge: true })
-      .then((val) => {
+      .then(async (val) => {
+        await db
+          .collection("UserDetails")
+          .doc(val.id)
+          .collection("Likes")
+          .doc("result")
+          .set({ likesArray: [] }, { merge: true });
         res.send({ status: 200, message: "success", result: "success" });
       });
   } catch (error) {

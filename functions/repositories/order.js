@@ -19,7 +19,8 @@ const { calTotalPrice } = require("../util/calculate-order");
 exports.addOrder = async (req, res) => {
   const data = req.body.data;
   // TODO FOR TOTAL PRICCE
-  data.total = calTotalPrice(data);
+  data.totalPrice = calTotalPrice(data.order);
+
   await db
     .collection("Order")
     .add(data)

@@ -38,10 +38,14 @@ exports.deleteMenu = async (req, res) => {
 exports.getMenu = async (req, res) => {
   try {
     const container = [];
+
     const type = req.body.type;
     const menu = await db.collection("Menu").where("type", "==", type).get();
     menu.forEach((doc) => {
-      container.push(doc.data());
+      let obj = {};
+      obj = { id: doc.id, ...doc.data() };
+
+      container.push(obj);
     });
     res.send(container);
   } catch (error) {
@@ -53,7 +57,6 @@ exports.updateMenu = async (req, res) => {
   try {
     const id = req.body.id;
     const data = req.body.data;
-
     await db
       .collection("Menu")
       .doc(id)

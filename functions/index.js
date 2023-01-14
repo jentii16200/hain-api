@@ -28,6 +28,11 @@ const {
   getOrderLogs,
 } = require("./repositories/order");
 
+const {
+  updateLikesController,
+  getAllLikesController,
+  getAllSpecificLikesMenuController,
+} = require("./repositories/likes");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
@@ -58,6 +63,10 @@ app.get("/getOrderLogs", getOrderLogs);
 app.post("/createRemarks", createRemarks);
 app.get("/getRemarks", getRemarks);
 
+// LIKES
+app.post("/updateLikes", updateLikesController);
+app.post("/getAllLikes", getAllLikesController);
+app.post("/getAllSpecificLikesMenu", getAllSpecificLikesMenuController);
 app.listen(4020, () => {
   console.log("running on port 1");
 });
