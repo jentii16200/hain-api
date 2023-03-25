@@ -86,5 +86,6 @@ exports.getAllLikesMenuRepo = async (id) => {
 const getSpecificMenu = async (foodId) => {
   const foodMenuRef = await db.collection("Menu").doc(foodId).get();
   const foodMenuDoc = foodMenuRef.data();
-  return foodMenuDoc;
+  const obj = { ...foodMenuDoc, id: foodMenuRef.id };
+  return obj;
 };

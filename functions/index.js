@@ -26,6 +26,7 @@ const {
   onGoingOrder,
   doneOrder,
   getOrderLogs,
+  newOrderStatus,
 } = require("./repositories/order");
 
 const {
@@ -58,6 +59,7 @@ app.post("/acceptOrder", acceptOrder);
 app.post("/onGoingOrder", onGoingOrder);
 app.post("/doneOrder", doneOrder);
 app.get("/getOrderLogs", getOrderLogs);
+app.post("/newOrderStatus", newOrderStatus);
 
 // Remarks
 app.post("/createRemarks", createRemarks);
