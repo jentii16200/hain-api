@@ -7,7 +7,7 @@ const serviceAccount = require("./hain-402aa-firebase-adminsdk-iy0yz-d55386632e.
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
-
-
 const db = admin.firestore();
-module.exports = {db, admin};
+// Initialize Firebase
+
+module.exports = { db, admin };

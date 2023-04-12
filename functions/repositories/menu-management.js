@@ -57,10 +57,7 @@ exports.updateMenu = async (req, res) => {
   try {
     const id = req.body.id;
     const data = req.body.data;
-    await db
-      .collection("Menu")
-      .doc(id)
-      .set({ ...data }, { merge: true });
+    await db.collection("Menu").doc(id).update(data);
     res.send({ message: "success", status: 200 });
   } catch (error) {
     res.send({ message: "fail", status: 200, error: error.message });

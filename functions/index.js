@@ -11,6 +11,11 @@ const {
   getUserAccounts,
   addUserAllergy,
   getUserDetailsData,
+  changePicture,
+  updateWebAccount,
+  handleLinkGoogle,
+  handleLinkFacebook,
+  handleSignInGoogleOrFacebook,
 } = require("./repositories/user-accounts");
 const {
   addMenu,
@@ -27,6 +32,7 @@ const {
   doneOrder,
   getOrderLogs,
   newOrderStatus,
+  getOrderUser,
 } = require("./repositories/order");
 
 const {
@@ -35,7 +41,8 @@ const {
   getAllSpecificLikesMenuController,
 } = require("./repositories/likes");
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ limit: "25mb", extended: true }));
+app.use(express.json({ limit: "25mb" }));
 app.use(cors());
 app.options("*", cors());
 
@@ -47,6 +54,13 @@ app.post("/updateAccount", updateAccount);
 app.get("/getUserAccounts", getUserAccounts);
 app.post("/addUserAllergy", addUserAllergy);
 app.post("/getUserDetailsData", getUserDetailsData);
+app.post("/changePicture", changePicture);
+
+app.post("/updateWebAccount", updateWebAccount);
+
+app.post("/handleLinkFacebook", handleLinkFacebook);
+app.post("/handleLinkGoogle", handleLinkGoogle);
+app.post("/handleSignInGoogleOrFacebook", handleSignInGoogleOrFacebook);
 // MENU Management
 app.post("/addMenu", addMenu);
 app.post("/deleteMenu", deleteMenu);
@@ -60,6 +74,7 @@ app.post("/onGoingOrder", onGoingOrder);
 app.post("/doneOrder", doneOrder);
 app.get("/getOrderLogs", getOrderLogs);
 app.post("/newOrderStatus", newOrderStatus);
+app.post("/getOrderUser", getOrderUser);
 
 // Remarks
 app.post("/createRemarks", createRemarks);

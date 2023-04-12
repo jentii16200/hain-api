@@ -16,11 +16,54 @@ const { calTotalPrice } = require("../util/calculate-order");
 //             }
 //         ],
 
+exports.getOrderUser = async (req, res) => {
+  const id = req.body.id;
+  try {
+    const container = [];
+
+    const order = await db
+      .collection("Order")
+      .where("userDetails.id", "==", id)
+      .get();
+
+    order.forEach((doc) => {
+      let obj = {};
+      obj = { ...doc.data() };
+
+      container.push(obj);
+    });
+    res.send({ result: container, status: 200, message: "success" });
+  } catch (error) {
+    res.send({ message: error.messsage, result: "fail" });
+  }
+};
+
 exports.addOrder = async (req, res) => {
   const data = req.body.data;
+  // data.orderId = makeid(10);
   // TODO FOR TOTAL PRICCE
   data.totalPrice = calTotalPrice(data.order);
-  sendMessage(data.userDetails.id, "onProcess");
+  data.timestamp = new Date();
+  const userDetailsRef = await db
+    .collection("UserDetails")
+    .doc(data.userDetails.id)
+    .get();
+  const userDetailsDoc = userDetailsRef.data();
+
+  const message = {
+    token: userDetailsDoc.fcmToken,
+    notification: {
+      title: `Hain`,
+      body: `Your Order now is on process`,
+    },
+  };
+  admin
+    .messaging()
+    .send(message)
+    .then((response) => {})
+    .catch((error) => {
+      console.log("Error Sending Single Notification", JSON.stringify(error));
+    });
   await db
     .collection("Order")
     .add(data)
@@ -128,4 +171,16 @@ exports.newOrderStatus = async (req, res) => {
     res.send({ status: 400, message: error.message });
   }
   return;
+};
+const makeid = (length) => {
+  let result = "";
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const charactersLength = characters.length;
+  let counter = 0;
+  while (counter < length) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    counter += 1;
+  }
+  return result;
 };
