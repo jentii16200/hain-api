@@ -2,7 +2,7 @@ const functions = require("firebase-functions");
 const express = require("express");
 const app = express("express");
 const cors = require("cors");
-
+const bodyParser = require("body-parser");
 const {
   login,
   register,
@@ -16,12 +16,14 @@ const {
   handleLinkGoogle,
   handleLinkFacebook,
   handleSignInGoogleOrFacebook,
+  updateAccountWeb,
 } = require("./repositories/user-accounts");
 const {
   addMenu,
   deleteMenu,
   getMenu,
   updateMenu,
+  getAllMenu,
 } = require("./repositories/menu-management");
 const { createRemarks, getRemarks } = require("./repositories/remarks");
 const {
@@ -33,6 +35,8 @@ const {
   getOrderLogs,
   newOrderStatus,
   getOrderUser,
+  checkExistingTable,
+  cancelOrder,
 } = require("./repositories/order");
 
 const {
@@ -40,17 +44,19 @@ const {
   getAllLikesController,
   getAllSpecificLikesMenuController,
 } = require("./repositories/likes");
-app.use(express.json());
-app.use(express.urlencoded({ limit: "25mb", extended: true }));
-app.use(express.json({ limit: "25mb" }));
+
 app.use(cors());
 app.options("*", cors());
+app.use(express.json());
+app.use(express.urlencoded({ limit: "100mb", extended: true }));
+app.use(express.json({ limit: "100mb" }));
 
 // USER ACCOUNTS
 app.post("/login", login);
 app.post("/register", register);
 app.post("/deleteAccount", deleteAccount);
 app.post("/updateAccount", updateAccount);
+app.post("/updateAccountWeb", updateAccountWeb);
 app.get("/getUserAccounts", getUserAccounts);
 app.post("/addUserAllergy", addUserAllergy);
 app.post("/getUserDetailsData", getUserDetailsData);
@@ -66,6 +72,7 @@ app.post("/addMenu", addMenu);
 app.post("/deleteMenu", deleteMenu);
 app.post("/getMenu", getMenu);
 app.post("/updateMenu", updateMenu);
+app.get("/getAllMenu", getAllMenu);
 // Order Logs
 app.post("/addOrder", addOrder);
 app.post("/rejectOrder", rejectOrder);
@@ -75,7 +82,8 @@ app.post("/doneOrder", doneOrder);
 app.get("/getOrderLogs", getOrderLogs);
 app.post("/newOrderStatus", newOrderStatus);
 app.post("/getOrderUser", getOrderUser);
-
+app.post("/checkExistingTable", checkExistingTable);
+app.post("/cancelOrder", cancelOrder);
 // Remarks
 app.post("/createRemarks", createRemarks);
 app.get("/getRemarks", getRemarks);

@@ -1,7 +1,8 @@
-exports.calTotalPrice = (data)=> {
+exports.calTotalPrice = (data) => {
   let total = 0;
   data.map((val) => {
-    total = total + val.price;
+    const result = val.price * val.quantity;
+    total = total + result;
   });
   return total;
 };

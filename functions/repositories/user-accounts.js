@@ -106,7 +106,13 @@ exports.addUserAllergy = async (req, res) => {
     result: "successfully add allergy to user!",
   });
 };
+exports.updateAccountWeb = async (req, res) => {
+  const id = req.body.id;
+  const data = req.body.data;
+  await db.collection("UserDetails").doc(id).update(data);
 
+  return;
+};
 exports.getUserDetailsData = async (req, res) => {
   const id = req.body.id;
 
@@ -268,7 +274,7 @@ exports.handleSignInGoogleOrFacebook = async (req, res) => {
     );
     userDetailsSpecificRef = await db
       .collection("UserDetails")
-      .id(registerViaGoogleOrFb)
+      .doc(registerViaGoogleOrFb)
       .get();
     userDetailsSpecificDoc = userDetailsSpecificRef.data();
     userDetailsSpecificDoc.id = registerViaGoogleOrFb;

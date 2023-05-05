@@ -28,7 +28,7 @@ exports.getOrderUser = async (req, res) => {
 
     order.forEach((doc) => {
       let obj = {};
-      obj = { ...doc.data() };
+      obj = { ...doc.data(), id: doc.id };
 
       container.push(obj);
     });
@@ -37,13 +37,27 @@ exports.getOrderUser = async (req, res) => {
     res.send({ message: error.messsage, result: "fail" });
   }
 };
-
+exports.cancelOrder = async (req, res) => {
+  const id = req.body.id;
+  await db
+    .collection("Order")
+    .doc(id)
+    .set({ status: "cancel" }, { merge: true })
+    .then((val) => {
+      res.send({ result: "success", status: 200 });
+    });
+};
 exports.addOrder = async (req, res) => {
   const data = req.body.data;
+  const tableNumber = req.body.tableNumber;
+  const fullName = req.body.fullName;
+  let obj = {};
+
   // data.orderId = makeid(10);
   // TODO FOR TOTAL PRICCE
   data.totalPrice = calTotalPrice(data.order);
   data.timestamp = new Date();
+  obj = { ...data, tableNumber: tableNumber, fullName: fullName };
   const userDetailsRef = await db
     .collection("UserDetails")
     .doc(data.userDetails.id)
@@ -66,7 +80,7 @@ exports.addOrder = async (req, res) => {
     });
   await db
     .collection("Order")
-    .add(data)
+    .add(obj)
     .then((val) => {
       res.send({ result: "success", status: 200 });
     });
@@ -140,17 +154,22 @@ exports.newOrderStatus = async (req, res) => {
     const userId = req.body.userId;
     const orderId = req.body.orderId;
     const status = req.body.status;
+    const data = req.body.data;
     console.log(userId);
     console.log(orderId);
     console.log(status);
     const userDetailsRef = await db.collection("UserDetails").doc(userId).get();
     const userDetailsDoc = userDetailsRef.data();
-    await db.collection("Order").doc(orderId).set(
-      {
-        status: status,
-      },
-      { merge: true }
-    );
+    await db
+      .collection("Order")
+      .doc(orderId)
+      .set(
+        {
+          status: status,
+          ...data,
+        },
+        { merge: true }
+      );
 
     const message = {
       token: userDetailsDoc.fcmToken,
@@ -183,4 +202,29 @@ const makeid = (length) => {
     counter += 1;
   }
   return result;
+};
+exports.checkExistingTable = async (req, res) => {
+  const tableNumber = req.body.tableNumber;
+
+  if (isNaN(parseInt(tableNumber))) {
+    res.send({ status: 200, message: "Please put numbeer", isExists: false });
+  }
+  const userAccountRef = await db
+    .collection("Order")
+    .where("status", "==", "pending")
+    .where("tableNumber", "==", tableNumber)
+    .get();
+  console.log(userAccountRef.docs.length);
+  if (userAccountRef.docs.length == 0) {
+    res.send({ status: 200, message: "table is available", isExists: false });
+    return;
+  } else {
+    res.send({
+      status: 200,
+      message: "table is not available",
+      isExists: true,
+    });
+  }
+
+  return;
 };
